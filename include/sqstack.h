@@ -75,13 +75,13 @@ void SqStack<T>::ClearStack(){
 template<typename T>
 void SqStack<T>::Print()const{
     if(top==-1){
-        std::cout<<"空栈"<<endl;
+        std::cout<<"空栈"<<std::endl;
         return;
     }
     for(int i=0;i<=top;i++){
         std::cout<<data[i]<<" ";
     }
-    std::cout<<endl;
+    std::cout<<std::endl;
 }
 
 #endif

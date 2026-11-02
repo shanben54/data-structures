@@ -87,13 +87,13 @@ void SqQueue<T>::ClearQueue(){
 template<typename T>
 void SqQueue<T>::Print()const{
     if(Empty()==true){
-        std::cout<<"空队列"<<endl;
+        std::cout<<"空队列"<<std::endl;
         return;
     }
     for(int i=front;i!=rear;i=(i+1)%maxsize){
         std::cout<<s[i]<<" ";
     }
-    std::cout<<endl;
+    std::cout<<std::endl;
 }
 
 #endif

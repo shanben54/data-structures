@@ -12,7 +12,7 @@
 ## 编译运行
 **Linux / macOS**
 ```bash
-camke -B build
+cmake -B build
 cmake --build build
 ./build/test_all
 ```

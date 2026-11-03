@@ -10,7 +10,14 @@
 | 二叉树 | include/bitree.h | 前序/中序/后序遍历，层序遍历，非递归实现中序遍历 |
 
 ## 编译运行
+**Linux / macOS**
+```bash
+camke -B build
+cmake --build build
+./build/test_all
 ```
+**Windows(MinGW)**
+```bash
 cmake -B build -G "MinGW Makefiles"
 cmake --build build
 ./build/test_all.exe

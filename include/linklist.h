@@ -1,6 +1,8 @@
 #ifndef LINKLIST_H
 #define LINKLIST_H
 
+#include<utility>
+
 template<typename T>
 class LinkList{
 private:
@@ -9,13 +11,33 @@ private:
     {
         T data;
         Node* next;
-        Node(T v):data(v),next(nullptr){}//结点的构造函数，初始next为nullptr
+        Node(cosnt T &v):data(v),next(nullptr){}//结点的构造函数，初始next为nullptr，更新为引用传参，这样可以减少一次拷贝构造
     };
     Node* Head;//头结点，next指向第一个结点
 
 public:
     //构造函数，先构造一个头结点出来
     LinkList():Head(new Node(0)){}
+    
+    //拷贝构造，深拷贝
+    LinkList(const LinkList& o){
+        Head=new Node(0);
+        Node* p=o.Head->next;
+        Node* q=Head;
+        while(p){
+            Node* n=new Node(p->data);
+            q->next=n;
+            q=n;
+            p=p->next;
+        }
+    }
+    
+    //拷贝赋值，返回值为结点的引用，方便连续赋值
+    LinkList& operator=(const LinkList& o){
+        LinkList tmp(o);//先用拷贝构造把要复制的结点内容复制出来
+        std::swap(Head,tmp.Head);//然后再进行交换，可以这样防止万一在复制过程中出什么问题，原来的自己不变
+        return *this;//返回自己
+    }
     
     //析构函数，清理结点，删除头结点
     ~LinkList(){
